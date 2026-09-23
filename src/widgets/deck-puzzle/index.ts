@@ -1,0 +1,1 @@
+export { DeckPuzzle } from './ui/DeckPuzzle'

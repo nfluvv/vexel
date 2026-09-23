@@ -2,8 +2,7 @@ import { getTranslations } from "next-intl/server"
 
 import { Container } from "@/shared/client/ui"
 import { HeroSection } from "@/widgets/hero-section"
-
-
+import Link from "next/link"
 
 export async function HomePage() {
   const t = await getTranslations("home")
@@ -54,13 +53,12 @@ export async function HomePage() {
       <Container className="flex min-h-[calc(100vh-8.5rem)] flex-col justify-center gap-12 pb-20">
         <HeroSection />
 
-        {/* Core Features */}
         <section
           aria-labelledby="core-features-title"
           className="space-y-6 pt-12"
         >
           <div className="max-w-2xl space-y-2">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">
               {t("features.eyebrow")}
             </p>
 
@@ -71,19 +69,17 @@ export async function HomePage() {
               {t("features.title")}
             </h2>
 
-            <p className="text-muted-foreground">
-              {t("features.description")}
-            </p>
+            <p className="text-muted-foreground">{t("features.description")}</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
             {features.map((feature) => (
               <article
                 key={feature.title}
-                className="group flex min-h-[250px] flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-foreground/20"
+                className="group flex min-h-62.5 flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-foreground/20"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
                     {feature.badge}
                   </span>
 
@@ -107,12 +103,9 @@ export async function HomePage() {
           </div>
         </section>
 
-        <section
-          aria-labelledby="comparison-title"
-          className="space-y-6 pt-12"
-        >
+        <section aria-labelledby="comparison-title" className="space-y-6 pt-12">
           <div className="max-w-2xl space-y-2">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">
               {t("comparison.eyebrow")}
             </p>
 
@@ -134,11 +127,11 @@ export async function HomePage() {
                 {t("comparison.feature")}
               </div>
 
-              <div className="border-b border-border border-l px-4 py-4 font-medium text-muted-foreground sm:px-6">
+              <div className="border-b border-l border-border px-4 py-4 font-medium text-muted-foreground sm:px-6">
                 Quizlet
               </div>
 
-              <div className="border-b border-border border-l px-4 py-4 font-medium text-foreground sm:px-6">
+              <div className="border-b border-l border-border px-4 py-4 font-medium text-foreground sm:px-6">
                 Vexel
               </div>
 
@@ -148,11 +141,11 @@ export async function HomePage() {
                     {row.feature}
                   </div>
 
-                  <div className="border-b border-border border-l px-4 py-4 text-muted-foreground sm:px-6">
+                  <div className="border-b border-l border-border px-4 py-4 text-muted-foreground sm:px-6">
                     {row.quizlet}
                   </div>
 
-                  <div className="border-b border-border border-l px-4 py-4 font-medium text-foreground sm:px-6">
+                  <div className="border-b border-l border-border px-4 py-4 font-medium text-foreground sm:px-6">
                     {row.vexel}
                   </div>
                 </div>
@@ -168,16 +161,14 @@ export async function HomePage() {
                 {t("cta.title")}
               </h2>
 
-              <p className="text-muted-foreground">
-                {t("cta.description")}
-              </p>
+              <p className="text-muted-foreground">{t("cta.description")}</p>
 
-              <a
+              <Link
                 href="/register"
                 className="inline-flex h-11 items-center justify-center rounded-lg bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
               >
                 {t("cta.button")}
-              </a>
+              </Link>
             </div>
           </div>
         </section>

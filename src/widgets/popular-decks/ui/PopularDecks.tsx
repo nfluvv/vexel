@@ -9,6 +9,8 @@ interface Props {
 export const PopularDecks = async ({ decks }: Props) => {
   const t = await getTranslations("dashboard")
 
+  if (!decks || decks.length === 0) return null
+
   return (
     <div className="mb-10">
       <div className="mb-5">

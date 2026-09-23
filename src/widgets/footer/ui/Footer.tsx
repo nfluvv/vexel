@@ -13,8 +13,8 @@ export async function Footer() {
           &copy; {siteConfig.currentYear} {siteConfig.name}. {t("rights")}
         </p>
         <div className="flex items-center gap-3 [&_a:not(:last-child)]:border-r [&_a:not(:last-child)]:border-border/40 [&_a:not(:last-child)]:pr-3">
-          <Link 
-            href="/donate" 
+          <Link
+            href="/donate"
             className="transition-colors hover:text-foreground"
           >
             {t("donate")}

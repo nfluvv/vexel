@@ -3,6 +3,10 @@ import { cache } from "react"
 import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
 
+const authorSelect = {
+  select: { username: true, name: true },
+} as const
+
 export const getUserDecks = cache(async () => {
   const session = await auth()
   if (!session?.user?.id) return null
@@ -22,6 +26,7 @@ export const getDeckSummaryById = cache(async (deckId: string) => {
     where: { id: deckId },
     include: {
       _count: { select: { cards: true } },
+      user: authorSelect, // <-- добавили
       ...(viewerId
         ? {
             savedDecks: {
@@ -38,12 +43,13 @@ export const getDeckSummaryById = cache(async (deckId: string) => {
   const isOwner = viewerId === deck.userId
   if (!isOwner && deck.status !== "PUBLIC") return null
 
-  const { savedDecks, ...rest } = deck as typeof deck & {
+  const { savedDecks, user, ...rest } = deck as typeof deck & {
     savedDecks?: { id: string }[]
   }
 
   return {
     ...rest,
+    author: user, // <-- отдаём как author
     isSaved: (savedDecks?.length ?? 0) > 0,
   }
 })

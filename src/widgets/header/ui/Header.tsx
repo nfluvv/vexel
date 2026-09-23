@@ -18,9 +18,9 @@ export async function Header() {
       <Container className="relative flex h-14 items-center gap-2 sm:h-16">
         <Link
           href={siteConfig.routes.home}
-          className="font-display shrink-0 text-base font-semibold sm:text-lg"
+          className="font-display flex shrink-0 items-center gap-1.5 text-base font-semibold sm:text-lg"
         >
-          🪐 {siteConfig.name}
+          {siteConfig.name}
         </Link>
 
         {user && (
@@ -30,9 +30,7 @@ export async function Header() {
         )}
 
         <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
-          {
-            user && <MobileSearchTrigger />
-          }
+          {user && <MobileSearchTrigger />}
           <ThemeToggle />
           <LanguageSwitcher />
 

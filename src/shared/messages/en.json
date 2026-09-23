@@ -466,10 +466,24 @@
   "study": {
     "back": "Back",
     "next": "Next",
+
     "browse": "Browse",
     "browseDesc": "Swipe and flip the cards",
     "learn": "Learn",
     "learnDesc": "Write your answers and test yourself",
+    "puzzle": "Puzzle",
+    "puzzleDesc": "Collect words in pieces and practice spelling.",
+    "match": "Matches",
+    "matchDesc": "Find word pairs quickly. Pure excitement and reaction.",
+    "blast": "Turbo",
+    "blastDesc": "Choose the correct option before the timer ticks.",
+    "popular": "Popular",
+    "popularDesc": "Final mixed test for complete deck verification.",
+
+    "assemblePlaceholder": "Spell the word",
+
+    "matchBatch": "Batch {current} / {total}",
+
     "cards": "cards",
     "answerPlaceholder": "Write the definition...",
     "check": "Check",
@@ -493,8 +507,6 @@
     "emptyDeck": "This deck has no cards yet.",
     "browseFinishedTitle": "Done!",
     "browseFinishedDescription": "You've gone through the whole deck.",
-    "goToLearn": "Go to Learn mode",
-    "reviewAgain": "Review again",
     "goBack": "Go back",
     "finish": "Finish",
     "review": "Review",
@@ -515,6 +527,7 @@
     "chooseStudyMode": "Choose a mode and start learning",
     "actionsText": "Space — flip, ← → — navigate, S — speak"
   },
+
   "dashboard": {
     "title": "Dashboard",
     "manageDecks": "Manage your decks and track your progress",
@@ -621,4 +634,3 @@
     }
   }
 }
-  

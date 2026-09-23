@@ -14,19 +14,21 @@ export const getSavedDecks = cache(
     }
 
     const safePage = Math.max(1, page)
+    const trimmedQuery = query.trim()
 
     const where = {
       userId: session.user.id,
-      ...(query.trim()
-        ? {
-            deck: {
+      deck: {
+        status: "PUBLIC" as const,
+        ...(trimmedQuery
+          ? {
               title: {
-                contains: query.trim(),
+                contains: trimmedQuery,
                 mode: "insensitive" as const,
               },
-            },
-          }
-        : {}),
+            }
+          : {}),
+      },
     }
 
     const [saved, total] = await Promise.all([
@@ -49,7 +51,6 @@ export const getSavedDecks = cache(
     }
   }
 )
-
 export const isDeckSaved = cache(async (deckId: string) => {
   const session = await auth()
   if (!session?.user?.id) return false

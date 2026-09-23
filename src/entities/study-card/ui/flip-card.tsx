@@ -7,6 +7,8 @@ type FlipCardProps = {
   back: string
   flipped: boolean
   onToggle: () => void
+  onFlipEnd?: () => void
+  disabled?: boolean
   onTouchStart?: (e: React.TouchEvent) => void
   onTouchEnd?: (e: React.TouchEvent) => void
 }
@@ -16,6 +18,8 @@ export function FlipCard({
   back,
   flipped,
   onToggle,
+  onFlipEnd,
+  disabled,
   onTouchStart,
   onTouchEnd,
 }: FlipCardProps) {
@@ -23,8 +27,10 @@ export function FlipCard({
     <div
       role="button"
       tabIndex={0}
-      onClick={onToggle}
+      aria-pressed={flipped}
+      onClick={() => !disabled && onToggle()}
       onKeyDown={(e) => {
+        if (disabled) return
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault()
           onToggle()
@@ -32,13 +38,19 @@ export function FlipCard({
       }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
-      className="h-64 cursor-pointer select-none perspective-distant"
+      className={cn(
+        "h-64 select-none perspective-distant",
+        disabled ? "pointer-events-none cursor-default" : "cursor-pointer"
+      )}
     >
       <div
         className={cn(
-          "relative h-full w-full transition-transform duration-500 transform-3d",
+          "relative h-full w-full transition-transform duration-300 ease-in-out transform-3d",
           flipped && "transform-[rotateY(180deg)]"
         )}
+        onTransitionEnd={(e) => {
+          if (e.propertyName === "transform") onFlipEnd?.()
+        }}
       >
         <div className="absolute inset-0 flex items-center justify-center rounded-2xl border border-border/60 bg-card p-6 text-center text-lg font-medium backface-hidden">
           {front}

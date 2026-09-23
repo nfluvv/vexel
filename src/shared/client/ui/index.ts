@@ -1,9 +1,11 @@
+export { LivesDisplay } from "./lives-display"
+export { ComboBadge } from "./combo-badge"
 export { PasswordStrengthIndicator } from "./password-strength"
 export { AuthErrorToast } from "./error-toasts"
 export { Container } from "./сontainer"
 export { EmptyDeckState } from "./empty-deck-state"
 export { ProgressBar } from "./progress-bar"
-export { BackButton } from "./back-button"
+export { TimerRing } from './timer-ring'
 export * from "./icons"
 export * from "./shadcn/button"
 export * from "./shadcn/input"
