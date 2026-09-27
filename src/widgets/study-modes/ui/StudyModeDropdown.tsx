@@ -9,7 +9,6 @@ import {
   SelectValue,
 } from "@/shared/client/ui"
 
-
 import type { StudyMode } from "../model/types"
 
 type StudyModeOption = {
@@ -30,7 +29,7 @@ export function StudyModeTabs({
   current,
   onChange,
   options,
-  className
+  className,
 }: StudyModeTabsProps) {
   const active = options.find((o) => o.key === current)
 

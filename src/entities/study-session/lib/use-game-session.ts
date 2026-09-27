@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useRecordStudySession } from "@/entities/study-session/lib/use-record-study-session"
 import { useShake } from "@/shared/client/hooks/use-shake"
 import { useHaptics } from "@/shared/client/hooks/use-haptics"
-import type { FinishStats } from '@/shared/client/types'
+import type { FinishStats } from "@/shared/client/types"
 
 type UseGameSessionParams = {
   deckId: string

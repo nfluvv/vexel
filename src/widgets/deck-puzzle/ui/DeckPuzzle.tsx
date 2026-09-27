@@ -46,7 +46,10 @@ export function DeckPuzzle({ deck, onFinish }: DeckPuzzleProps) {
             {t("cardsLeft", { count: queueLength })}
           </p>
         </div>
-        <SpeakButton onSpeak={() => speak(current.term)} isSpeaking={isSpeaking} />
+        <SpeakButton
+          onSpeak={() => speak(current.term)}
+          isSpeaking={isSpeaking}
+        />
       </div>
 
       <ProgressBar percent={progress} />
@@ -61,7 +64,9 @@ export function DeckPuzzle({ deck, onFinish }: DeckPuzzleProps) {
           )}
         >
           {answer.length === 0 && (
-            <span className="text-sm text-muted-foreground">{t("assemblePlaceholder")}</span>
+            <span className="text-sm text-muted-foreground">
+              {t("assemblePlaceholder")}
+            </span>
           )}
           {answer.map((chunk) => (
             <button

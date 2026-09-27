@@ -6,7 +6,11 @@ export type Round =
   | { kind: "assemble"; card: CardType }
   | { kind: "choice"; card: CardType; options: string[] }
 
-function pickDistractors(card: CardType, pool: CardType[], count = 3): string[] {
+function pickDistractors(
+  card: CardType,
+  pool: CardType[],
+  count = 3
+): string[] {
   const others = pool.filter((c) => c.id !== card.id).map((c) => c.definition)
   return shuffle(others).slice(0, count)
 }

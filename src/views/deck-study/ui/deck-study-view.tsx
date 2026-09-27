@@ -10,10 +10,15 @@ import type { Card as CardType, Deck } from "@prisma/client"
 import { DeckBrowse } from "@/widgets/deck-browse"
 import { DeckLearn } from "@/widgets/deck-learn"
 
-import { StudyModeTabs, type StudyMode, buildModes, MODES } from "@/widgets/study-modes"
-import { StudyResult,  } from "@/widgets/study-result"
+import {
+  StudyModeTabs,
+  type StudyMode,
+  buildModes,
+  MODES,
+} from "@/widgets/study-modes"
+import { StudyResult } from "@/widgets/study-result"
 import { Container, Button } from "@/shared/client/ui"
-import type { FinishStats } from '@/shared/client/types'
+import type { FinishStats } from "@/shared/client/types"
 import Link from "next/link"
 
 const DeckPuzzle = dynamic(
@@ -106,11 +111,25 @@ export function DeckStudyView({ deck, initialMode }: DeckStudyViewProps) {
           </StudyResult>
         ) : (
           <>
-            {mode === "browse" && <DeckBrowse key="browse" deck={deck} onFinish={handleBrowseFinish} />}
-            {mode === "learn" && <DeckLearn key="learn" deck={deck} onFinish={setFinished} />}
-            {mode === "puzzle" && <DeckPuzzle key="puzzle" deck={deck} onFinish={setFinished} />}
-            {mode === "blast" && <DeckBlast key="blast" deck={deck} onFinish={setFinished} />}
-            {mode === "match" && <DeckMatch key="match" deck={deck} onFinish={setFinished} />}
+            {mode === "browse" && (
+              <DeckBrowse
+                key="browse"
+                deck={deck}
+                onFinish={handleBrowseFinish}
+              />
+            )}
+            {mode === "learn" && (
+              <DeckLearn key="learn" deck={deck} onFinish={setFinished} />
+            )}
+            {mode === "puzzle" && (
+              <DeckPuzzle key="puzzle" deck={deck} onFinish={setFinished} />
+            )}
+            {mode === "blast" && (
+              <DeckBlast key="blast" deck={deck} onFinish={setFinished} />
+            )}
+            {mode === "match" && (
+              <DeckMatch key="match" deck={deck} onFinish={setFinished} />
+            )}
           </>
         )}
       </Container>

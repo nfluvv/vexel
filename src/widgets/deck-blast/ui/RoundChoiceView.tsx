@@ -6,7 +6,11 @@ type RoundChoiceViewProps = {
   onChoose: (option: string) => void
 }
 
-export function RoundChoiceView({ options, locked, onChoose }: RoundChoiceViewProps) {
+export function RoundChoiceView({
+  options,
+  locked,
+  onChoose,
+}: RoundChoiceViewProps) {
   return (
     <div className="grid grid-cols-1 gap-2">
       {options.map((option) => (

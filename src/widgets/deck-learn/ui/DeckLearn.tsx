@@ -44,7 +44,10 @@ export function DeckLearn({ deck, onFinish }: DeckLearnViewProps) {
             {t("cardsLeft", { count: queueLength })}
           </p>
         </div>
-        <SpeakButton onSpeak={() => speak(current.term)} isSpeaking={isSpeaking} />
+        <SpeakButton
+          onSpeak={() => speak(current.term)}
+          isSpeaking={isSpeaking}
+        />
       </div>
 
       <ProgressBar percent={progress} />
@@ -66,24 +69,33 @@ export function DeckLearn({ deck, onFinish }: DeckLearnViewProps) {
         {result && (
           <div
             className={cn("rounded-lg border px-3 py-2 text-sm", {
-              "border-primary/20 bg-primary/10 text-primary": result === "exact",
-              "border-amber-500/20 bg-amber-500/10 text-amber-600": result === "typo",
-              "border-destructive/20 bg-destructive/10 text-destructive": result === "wrong",
+              "border-primary/20 bg-primary/10 text-primary":
+                result === "exact",
+              "border-amber-500/20 bg-amber-500/10 text-amber-600":
+                result === "typo",
+              "border-destructive/20 bg-destructive/10 text-destructive":
+                result === "wrong",
             })}
           >
             {result === "exact" && t("correct")}
-            {result === "typo" && t("typoCorrect", { answer: current.definition })}
-            {result === "wrong" && t("incorrect", { answer: current.definition })}
+            {result === "typo" &&
+              t("typoCorrect", { answer: current.definition })}
+            {result === "wrong" &&
+              t("incorrect", { answer: current.definition })}
           </div>
         )}
 
         <button
           onClick={submit}
           disabled={isPending && !answer.trim()}
-          className={cn("w-full rounded-full py-2.5 font-medium transition-all", {
-            "bg-primary text-primary-foreground disabled:opacity-40": isPending,
-            "border border-border/60": !isPending,
-          })}
+          className={cn(
+            "w-full rounded-full py-2.5 font-medium transition-all",
+            {
+              "bg-primary text-primary-foreground disabled:opacity-40":
+                isPending,
+              "border border-border/60": !isPending,
+            }
+          )}
         >
           {isPending ? t("check") : t("next")}
         </button>

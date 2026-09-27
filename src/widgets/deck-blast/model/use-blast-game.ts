@@ -45,7 +45,10 @@ export function useBlastGame({ deckId, cards, onFinish }: UseBlastGameArgs) {
 
   useEffect(() => {
     if (isFinished || rounds.length === 0) return
-    const timer = setInterval(() => setTimeLeft((s) => Math.max(s - 1, 0)), 1000)
+    const timer = setInterval(
+      () => setTimeLeft((s) => Math.max(s - 1, 0)),
+      1000
+    )
     return () => clearInterval(timer)
   }, [isFinished, rounds.length])
 

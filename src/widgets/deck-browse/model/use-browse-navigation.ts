@@ -14,11 +14,13 @@ export function useBrowseNavigation(cards: CardType[], onFinish: () => void) {
   const isLastCard = index === cards.length - 1
   const progress = cards.length > 0 ? ((index + 1) / cards.length) * 100 : 0
 
-  const { isAnimating, run, handleFlipEnd } = useFlipTransition<PendingAction>((action) => {
-    if (action === "finish") return onFinish()
-    if (action === "next") return setIndex((i) => i + 1)
-    if (action === "prev") return setIndex((i) => Math.max(i - 1, 0))
-  })
+  const { isAnimating, run, handleFlipEnd } = useFlipTransition<PendingAction>(
+    (action) => {
+      if (action === "finish") return onFinish()
+      if (action === "next") return setIndex((i) => i + 1)
+      if (action === "prev") return setIndex((i) => Math.max(i - 1, 0))
+    }
+  )
 
   const goNext = useCallback(() => {
     if (isAnimating) return

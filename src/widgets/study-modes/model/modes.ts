@@ -49,6 +49,9 @@ export function buildModes(deckId: string): StudyModeConfig[] {
   ]
 }
 
-export function pickFeatured(modes: StudyModeConfig[], key: string): StudyModeConfig {
+export function pickFeatured(
+  modes: StudyModeConfig[],
+  key: string
+): StudyModeConfig {
   return modes.find((m) => m.key === key) ?? modes[0]
 }

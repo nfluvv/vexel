@@ -11,7 +11,12 @@ export type MatchTile = {
 export function buildMatchTiles(cards: CardType[]): MatchTile[] {
   const tiles: MatchTile[] = cards.flatMap((c) => [
     { id: `${c.id}-term`, cardId: c.id, text: c.term, side: "term" as const },
-    { id: `${c.id}-def`, cardId: c.id, text: c.definition, side: "definition" as const },
+    {
+      id: `${c.id}-def`,
+      cardId: c.id,
+      text: c.definition,
+      side: "definition" as const,
+    },
   ])
   return shuffle(tiles)
 }

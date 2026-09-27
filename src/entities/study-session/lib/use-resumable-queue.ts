@@ -46,13 +46,13 @@ export function useResumableQueue(
         }
       }
     } catch {}
-    
+
     setTimeout(() => setIsHydrated(true), 0)
   }, [deckId, mode, allCards])
 
   useEffect(() => {
     if (!isHydrated || queue.length === 0) return
-    
+
     const payload: SavedProgress = {
       remainingIds: queue.map((c) => c.id),
       correctCount,

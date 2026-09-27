@@ -11,7 +11,11 @@ type TimerRingProps = {
 const RADIUS = 16
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 
-export function TimerRing({ timeLeft, totalTime, panicThreshold = 10 }: TimerRingProps) {
+export function TimerRing({
+  timeLeft,
+  totalTime,
+  panicThreshold = 10,
+}: TimerRingProps) {
   const pct = totalTime > 0 ? Math.max(timeLeft / totalTime, 0) : 0
   const offset = CIRCUMFERENCE * (1 - pct)
   const isPanic = timeLeft <= panicThreshold && timeLeft > 0

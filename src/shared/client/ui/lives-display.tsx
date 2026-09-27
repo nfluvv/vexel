@@ -19,7 +19,7 @@ export function LivesDisplay({ lives, maxLives }: LivesDisplayProps) {
             className={cn(
               "size-5 transition-transform",
               filled
-                ? "fill-destructive text-destructive animate-heart-pop"
+                ? "animate-heart-pop fill-destructive text-destructive"
                 : "fill-none text-muted-foreground/25"
             )}
           />

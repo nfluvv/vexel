@@ -59,6 +59,25 @@ export const SearchDecksInput: React.FC<Props> = ({
     router.push(`/decks/${deckId}`)
   }
 
+  const goToSearchPage = () => {
+    const query = searchQuery.trim()
+    if (!query) return
+    setFocused(false)
+    setDecks([])
+    onNavigate?.()
+    router.push(`/search?q=${encodeURIComponent(query)}`)
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault()
+      goToSearchPage()
+    }
+    if (e.key === "Escape") {
+      setFocused(false)
+    }
+  }
+
   return (
     <div
       ref={ref}
@@ -73,6 +92,7 @@ export const SearchDecksInput: React.FC<Props> = ({
         type="text"
         placeholder={t("searchPlaceholder")}
         onFocus={() => setFocused(true)}
+        onKeyDown={onKeyDown}
         value={searchQuery}
         autoFocus={autoFocus}
         onChange={(e) => setSearchQuery(e.target.value)}
@@ -109,7 +129,6 @@ export const SearchDecksInput: React.FC<Props> = ({
                 <p className="truncate text-sm font-medium text-foreground">
                   {deck.title}
                 </p>
-
                 <p className="mt-0.5 text-xs text-muted-foreground">
                   {t("deckType")}
                 </p>

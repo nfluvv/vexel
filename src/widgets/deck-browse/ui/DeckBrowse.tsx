@@ -35,8 +35,14 @@ export function DeckBrowse({ deck, onFinish }: DeckBrowseViewProps) {
 
   useKeyboardShortcuts(
     {
-      Space: (e) => { e.preventDefault(); toggleFlip() },
-      Enter: (e) => { e.preventDefault(); toggleFlip() },
+      Space: (e) => {
+        e.preventDefault()
+        toggleFlip()
+      },
+      Enter: (e) => {
+        e.preventDefault()
+        toggleFlip()
+      },
       ArrowRight: goNext,
       ArrowLeft: goPrev,
       KeyS: () => card && speak(flipped ? card.definition : card.term),
@@ -44,7 +50,8 @@ export function DeckBrowse({ deck, onFinish }: DeckBrowseViewProps) {
     deck.cards.length > 0
   )
 
-  if (deck.cards.length === 0) return <EmptyDeckState message={t("emptyDeck")} />
+  if (deck.cards.length === 0)
+    return <EmptyDeckState message={t("emptyDeck")} />
 
   return (
     <div>
@@ -55,7 +62,10 @@ export function DeckBrowse({ deck, onFinish }: DeckBrowseViewProps) {
             {index + 1} / {deck.cards.length}
           </p>
         </div>
-        <SpeakButton onSpeak={() => speak(flipped ? card.definition : card.term)} isSpeaking={isSpeaking} />
+        <SpeakButton
+          onSpeak={() => speak(flipped ? card.definition : card.term)}
+          isSpeaking={isSpeaking}
+        />
       </div>
 
       <ProgressBar percent={progress} />
@@ -75,10 +85,18 @@ export function DeckBrowse({ deck, onFinish }: DeckBrowseViewProps) {
       </p>
 
       <div className="mt-4 flex justify-between">
-        <button onClick={goPrev} disabled={index === 0 || isAnimating} className="rounded-full border border-border/60 px-4 py-2 disabled:opacity-40">
+        <button
+          onClick={goPrev}
+          disabled={index === 0 || isAnimating}
+          className="rounded-full border border-border/60 px-4 py-2 disabled:opacity-40"
+        >
           {t("back")}
         </button>
-        <button onClick={goNext} disabled={isAnimating} className="rounded-full border border-border/60 px-4 py-2 disabled:opacity-40">
+        <button
+          onClick={goNext}
+          disabled={isAnimating}
+          className="rounded-full border border-border/60 px-4 py-2 disabled:opacity-40"
+        >
           {isLastCard ? t("finish") : t("next")}
         </button>
       </div>

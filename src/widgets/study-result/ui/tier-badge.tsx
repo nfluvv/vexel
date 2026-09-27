@@ -11,7 +11,7 @@ export function TierBadge({ tier }: TierBadgeProps) {
   return (
     <div
       className={cn(
-        "flex size-20 animate-tier-pop items-center justify-center rounded-2xl text-4xl font-black text-white shadow-lg",
+        "animate-tier-pop flex size-20 items-center justify-center rounded-2xl text-4xl font-black text-white shadow-lg",
         style.bg,
         style.glow && `shadow-xl ${style.glow}`
       )}

@@ -5,7 +5,10 @@ export function useCountdown(limitSec: number, running: boolean) {
 
   useEffect(() => {
     if (!running) return
-    const timer = setInterval(() => setTimeLeft((s) => Math.max(s - 1, 0)), 1000)
+    const timer = setInterval(
+      () => setTimeLeft((s) => Math.max(s - 1, 0)),
+      1000
+    )
     return () => clearInterval(timer)
   }, [running])
 

@@ -588,12 +588,19 @@
           "title": "Absolute Freedom",
           "description": "The product belongs to the community, not corporations. No hidden paywalls, deck creation limits, or intrusive advertising. Complete freedom to learn."
         },
-        "smartImport": {
-          "badge": "In Development",
-          "title": "Smart Import",
-          "description": "One-click parsing. Upload subtitles from games, song lyrics, or book chapters — the system automatically turns the text into ready-to-learn decks."
+        "modes": {
+          "badge": "Learn Modes",
+          "title": "Study Modes",
+          "description": "Study flashcards however and whenever you want. You can speed through them in interactive turbo mode or type out the card values manually."
         }
       }
+    },
+
+    "hero": {
+      "title": "Cards that know when you'll forget them",
+      "description": "Vexel schedules each card right before it slips your mind — and turns review into something you'd actually choose to do.",
+      "primaryCta": "Start studying",
+      "secondaryCta": "Continue studying"
     },
 
     "comparison": {
@@ -632,5 +639,12 @@
       "description": "Create your first deck and experience Vexel for yourself.",
       "button": "Create your first deck"
     }
+  },
+
+  "search": {
+    "resultsFor": "Results for \"{query}\"",
+    "emptyQuery": "Enter a search query",
+    "noResults": "No results found",
+    "cards": "cards"
   }
 }

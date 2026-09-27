@@ -41,7 +41,9 @@ export function DeckBlast({ deck, onFinish }: DeckBlastProps) {
 
   const distractorPool =
     current.kind === "assemble"
-      ? deck.cards.filter((c) => c.id !== current.card.id).map((c) => c.definition)
+      ? deck.cards
+          .filter((c) => c.id !== current.card.id)
+          .map((c) => c.definition)
       : []
 
   return (
@@ -59,7 +61,10 @@ export function DeckBlast({ deck, onFinish }: DeckBlastProps) {
         <p className="text-center text-lg font-medium">{current.card.term}</p>
 
         {current.kind === "type" && (
-          <RoundTypeView locked={locked} onCheck={(ans) => checkType(ans, () => {})} />
+          <RoundTypeView
+            locked={locked}
+            onCheck={(ans) => checkType(ans, () => {})}
+          />
         )}
 
         {current.kind === "choice" && (

@@ -43,7 +43,9 @@ export function usePuzzleFlow({ deckId, cards, onFinish }: UsePuzzleFlowArgs) {
 
   if (current && current.id !== prevCardId) {
     setPrevCardId(current.id)
-    const others = cards.filter((c) => c.id !== current.id).map((c) => c.definition)
+    const others = cards
+      .filter((c) => c.id !== current.id)
+      .map((c) => c.definition)
     const bankTexts = buildBank(toChunks(current.definition), others)
     setBank(bankTexts.map((txt, i) => ({ id: `${i}-${txt}`, text: txt })))
     setAnswer([])

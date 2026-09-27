@@ -5,7 +5,8 @@ export { AuthErrorToast } from "./error-toasts"
 export { Container } from "./сontainer"
 export { EmptyDeckState } from "./empty-deck-state"
 export { ProgressBar } from "./progress-bar"
-export { TimerRing } from './timer-ring'
+export { TimerRing } from "./timer-ring"
+export { StarField } from './star-field'
 export * from "./icons"
 export * from "./shadcn/button"
 export * from "./shadcn/input"

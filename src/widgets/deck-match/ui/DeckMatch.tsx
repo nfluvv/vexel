@@ -55,7 +55,9 @@ export function DeckMatch({ deck, onFinish }: DeckMatchProps) {
                 isMatched && "invisible",
                 isSelected && "border-primary bg-primary/10",
                 isWrong && "border-destructive bg-destructive/10",
-                !isSelected && !isWrong && "border-border/60 bg-background hover:bg-muted"
+                !isSelected &&
+                  !isWrong &&
+                  "border-border/60 bg-background hover:bg-muted"
               )}
             >
               {tile.text}
