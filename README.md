@@ -29,7 +29,7 @@
 ## 🚀 Quick Setup
 
 ```bash
-git clone https://github.com
+git clone https://github.com/nfluvv/vexel
 cd vexel
 npm install
 cp .env.example .env

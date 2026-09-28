@@ -363,6 +363,6 @@ a {
 }
 
 @keyframes star-twinkle {
-  0%, 100% { opacity: 0.15; }
+  20%, 100% { opacity: 0.15; }
   50% { opacity: 0.6; }
 }

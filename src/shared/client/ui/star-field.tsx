@@ -79,13 +79,14 @@ function StarShape({ type, size }: { type: number; size: string }) {
       )
   }
 }
+
 export function StarField({ count = 60, seed = 1 }: StarFieldProps) {
   const stars = createStarField(count, seed)
   
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
       {stars.map((star, i) => {
-        const starType = i % 4
+        const starType = i % 7 
         const hue = 40 + (i % 20) * 2 
         const color = `hsl(${hue}, 80%, 85%)`
         
