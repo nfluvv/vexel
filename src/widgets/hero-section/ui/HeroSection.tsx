@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server"
 import { siteConfig } from "@/shared/client/config/site"
 import { buttonVariants } from "@/shared/client/ui"
 import { auth } from "@/auth"
-import { StarField } from "@/shared/client/ui"
 
 export async function HeroSection() {
   const session = await auth()
@@ -13,7 +12,6 @@ export async function HeroSection() {
 
   return (
     <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden pt-44 pb-32 text-center">
-      {/* <StarField count={100} seed={1100} /> */}
       <h1 className="relative font-display text-4xl font-semibold tracking-tight">
         {siteConfig.name} — {t("title")}
       </h1>

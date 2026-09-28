@@ -53,7 +53,7 @@ export async function HomePage() {
   return (
     <main className="bg-background text-foreground">
       <Container className="flex min-h-[calc(100vh-8.5rem)] flex-col justify-center gap-12 pb-20">
-        <StarField count={400} seed={1100} />
+        <StarField count={1000} seed={1100} />
 
         <HeroSection />
 

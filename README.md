@@ -6,12 +6,6 @@
 
 ---
 
-## 💡 The Story Behind Vexel
-
-Vexel was built out of frustration with legacy paywalled apps while gaming and learning phrases. In 2 months, Vexel was created as a lightning-fast, free, open-source alternative featuring advanced memorization algorithms and military-grade security.
-
----
-
 ## 🛠 Tech Stack & Core Features
 
 - **Framework:** Next.js 16 (App Router)
