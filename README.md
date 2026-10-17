@@ -37,9 +37,3 @@ npx prisma generate
 npx prisma migrate dev
 npm run dev
 ```
-
----
-
-## 💰 License
-
-- Licensed under the Apache 2.0 License by [nfluvv](https://github.com/nfluvv). Full details can be found in the repository.
